@@ -1,12 +1,32 @@
 {
-  "name": "Sebas",
-  "version": "1.0.0",
-  "description": "",
+  "name": "sbas",
+  "version": "0.1.0",
+  "description": "Loyal CLI shortcuts",
   "main": "index.js",
+  "bin": "./bin/cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "precommit": "pretty-quick --staged"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "fs-extra": "^7.0.0"
+  },
+  "devDependencies": {
+    "husky": "^1.1.1",
+    "prettier": "1.14.3",
+    "pretty-quick": "^1.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hikire/sebas.git"
+  },
+  "keywords": [
+    "cli",
+    "shortcuts"
+  ],
+  "author": "hikire",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hikire/sebas/issues"
+  },
+  "homepage": "https://github.com/hikire/sebas#readme"
 }
