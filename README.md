@@ -1,6 +1,6 @@
 # Sebas
 
-Create aliases to commands or tasks using files.
+Create aliases to commands or tasks(JS/Sh files) using files.
 
 ## Installation
 
@@ -13,19 +13,26 @@ yarn global add sbas
 
 ## Usage
 
-create a `.sebas` folder in your $HOME directiory. Then add your commands by creating files that has the shortcut name and contain the intended command:
+Create a `.sebas` folder in your $HOME directiory. Then add your commands by creating files that has the shortcut name and contain the intended command:
 
 ```sh
 echo "rpm-ostree status" > status
 ```
 
-then use it anywhere like this:
+Then use it anywhere like this:
 
 ```sh
 sbas status
 ```
 
-### Using folders to group commands:
+If the command isn't found inside `.sebas` folder, sebas will try to run the command as is:
+
+```sh
+sbas ls # where ls command isn't inside .sebas folder
+# will show files like ls does
+```
+
+### Using folders to group commands
 
 ```sh
 mkdir os && cd os
@@ -38,7 +45,7 @@ and use it like this:
 sbas os status
 ```
 
-### JS tasks:
+### JS tasks
 
 you can add js files inside `.sebas` they will be executed when called:
 
@@ -53,7 +60,7 @@ sbas hi
 Hi :)
 ```
 
-### sh files:
+### sh files
 
 you can run sh files the same way as js ones:
 
