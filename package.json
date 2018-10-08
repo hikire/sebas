@@ -1,6 +1,6 @@
 {
   "name": "sbas",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Loyal CLI shortcuts",
   "main": "index.js",
   "bin": "./bin/cli.js",
