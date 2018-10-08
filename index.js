@@ -19,7 +19,10 @@ const getCommand = async (from, inputCommand, ...inputArgs) => {
           return ["sh", filePath, ...inputArgs];
         } else if (inputCommand === file) {
           const commandToExecute = await readFile(filePath, "utf-8");
-          return commandToExecute.split(" ").map(a => a.trim());
+          return commandToExecute
+            .split(" ")
+            .map(a => a.trim())
+            .concat(inputArgs);
         }
       }
     }
