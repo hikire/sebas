@@ -50,7 +50,7 @@ sbas os status
 you can add js files inside `.sebas` they will be executed when called:
 
 ```sh
-echo "console.log("Hi :)")" > hi.js
+echo "console.log(\"Hi :)\")" > hi.js
 ```
 
 and use it like this:
