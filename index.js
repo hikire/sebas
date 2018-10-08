@@ -35,9 +35,11 @@ const executeCommand = async (...args) => {
     (await getCommand(SEBAS_FOLDER, ...args)) || args;
   const commandProcess = spawn(command, commandArgs, { stdio: "inherit" });
   commandProcess.on("error", error => {
-    if (error.code === "ENOENT")
-      process.stderr.write("command not found: " + args.join(" ") + "\n");
-    else process.stderr.write(error.toString() + "\n");
+    if (error.code === "ENOENT") {
+      process.stderr.write(
+        `command not found: ${error.path} ${error.spawnargs.join(" ")}` + "\n"
+      );
+    } else process.stderr.write(error.toString() + "\n");
   });
 };
 
