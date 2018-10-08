@@ -53,6 +53,22 @@ sbas hi
 Hi :)
 ```
 
+### sh files:
+
+you can run sh files the same way as js ones:
+
+```sh
+# inside .sebas folder
+echo "touch hi.js && ls" > yo.sh
+```
+
+and use it like this:
+
+```sh
+sbas yo
+hi.js # etc...
+```
+
 ### Change `.sebas` directory
 
 Add an environmental variable called `SEBAS_DIR` it will be used by default.

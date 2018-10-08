@@ -15,6 +15,8 @@ const getCommand = async (from, inputCommand, ...inputArgs) => {
           return getCommand(filePath, ...inputArgs);
         } else if (inputCommand + ".js" === file) {
           return ["node", filePath, ...inputArgs];
+        } else if (inputCommand + ".sh" === file) {
+          return ["sh", filePath, ...inputArgs];
         } else if (inputCommand === file) {
           const commandToExecute = await readFile(filePath, "utf-8");
           return commandToExecute.split(" ").map(a => a.trim());
