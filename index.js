@@ -36,9 +36,7 @@ const executeCommand = async (...args) => {
   const commandProcess = spawn(command, commandArgs, { stdio: "inherit" });
   commandProcess.on("error", error => {
     if (error.code === "ENOENT") {
-      process.stderr.write(
-        `command not found: ${error.path} ${error.spawnargs.join(" ")}` + "\n"
-      );
+      process.stderr.write(`command not found: ${error.path}` + "\n");
     } else process.stderr.write(error.toString() + "\n");
   });
 };
