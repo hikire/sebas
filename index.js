@@ -5,8 +5,7 @@ const path = require("path");
 const SEBAS_FOLDER =
   process.env.SEBAS_DIR || path.join(process.env.HOME, "/.sebas");
 
-const getCommand = async (from, ...args) => {
-  const [inputCommand, ...inputArgs] = args;
+const getCommand = async (from, inputCommand, ...inputArgs) => {
   try {
     const files = await readdir(from);
     if (files.length) {
@@ -22,15 +21,11 @@ const getCommand = async (from, ...args) => {
         }
       }
     }
-    return null;
   } catch (error) {
-    if (error.code === "ENOENT") {
-      process.stderr.write(
-        "config folder not find. make sure ~/.sebas exists\n"
-      );
-      return null;
-    } else throw error;
+    if (error.code !== "ENOENT") throw error;
+    process.stderr.write("config folder not find. make sure ~/.sebas exists\n");
   }
+  return null;
 };
 
 const executeCommand = async (...args) => {
